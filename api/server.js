@@ -4,7 +4,7 @@ const server = express()
 
 server.use(express.json())
 
-server.use(express.static(path.join(__dirname, 'client/build')))
+server.use(express.static(path.join(__dirname, '../client/build')))
 
 if (!process.env.NODE_ENV === 'production') {
   const cors = require('cors')
@@ -16,7 +16,7 @@ server.get('/api', (req, res) => {
 })
 
 server.use('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'))
 })
 
 module.exports = server
